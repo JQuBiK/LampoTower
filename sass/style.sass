@@ -1,0 +1,207 @@
+$colorGreen: #8BC540
+$colorYellow: #F1EA28
+$colorGrey: #EEEEEE
+$colorWhite: #FFFFFF
+$colorBlack: #000000
+    
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    font-family: 'Inter', sans-serif
+
+.inner
+    width: 100%
+    max-width: 1280px
+    margin-left: auto
+    margin-right: auto
+    padding-left: 40px
+    padding-right: 40px
+    position: relative
+
+.tabs
+    padding: 30px 123px 0
+    &-btn
+        &-block
+            display: flex
+            align-items: center
+        &-wrapper.active
+            transition: .3s all
+            background-color: $colorGreen
+        &-wrapper
+            display: flex
+            align-items: center
+            justify-content: center
+            background-color: $colorGrey
+            width: 240px
+            height: 48px
+            cursor: pointer
+            padding: 12px 0
+            transition: .3s all
+            &:first-child
+                border-radius: 4px 0px 0px 4px
+            &:last-child
+                border-radius: 0px 4px 4px 0px
+            svg
+                width: 24px
+                height: 24px
+                color: $colorBlack
+                margin: 0 7.5px
+        &__text
+            font-weight: 600
+            font-size: 18px
+            line-height: 22px
+            color: $colorBlack
+            margin: 0 7.5px
+    &-content
+        display: flex
+        margin: 30px -47px 0 -47px
+        &-right
+            padding: 0 47px
+        &-left
+            padding: 0 47px
+        &-wrapper
+            &__img
+                display: none
+                padding: 92px 0
+            &__onfloor
+                display: none
+                &-img
+                    width: 488px
+                    overflow: hidden
+            &__text
+                width: 100%
+        &-onfloor
+            &-img
+                width: 488px
+                overflow: hidden
+                height: 421px
+                position: relative
+                display: flex
+                align-items: center
+                justify-content: start
+            &-info
+                display: flex
+                align-items: center
+                position: absolute
+                bottom: 15px
+                left: 15px
+                svg
+                    margin-right: 10px
+                    width: 24px
+                    height: 24px
+                    color: $colorBlack
+    &-onfloor
+        &-img
+            transition: .1s all
+            width: 100%
+    &-text-block
+    &-title
+        font-weight: 600
+        font-size: 38px
+        line-height: 100%
+        color: $colorBlack
+    &-price
+        font-weight: 600
+        font-size: 23px
+        line-height: 28px
+        color: $colorBlack
+        margin-top: 16px
+    &-descr
+        margin-top: 25px
+        &-block
+            display: flex
+            align-items: center
+            justify-content: space-between
+            margin-top: 10px
+            &-title
+                font-weight: 500
+                font-size: 17px
+                line-height: 21px
+                color: $colorBlack
+            &-descr
+                font-weight: 600
+                font-size: 17px
+                line-height: 21px
+                color: $colorBlack
+    &-call
+        width: 285px
+        height: 46px
+        background-color: $colorYellow
+        margin-top: 70px
+        border: none
+        outline: none
+        border-radius: 4px
+        padding: 14.5px 0
+        font-weight: 600
+        font-size: 14px
+        line-height: 17px
+        color: $colorBlack
+        cursor: pointer
+.show
+    display: block
+.loop-block
+    margin-top: 30px
+
+.loop-btn
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 36px
+
+.slider 
+    -webkit-appearance: none
+    appearance: none
+    width: 74.182%
+    height: 2px
+    background: $colorGrey
+    outline: none
+    opacity: 1
+    position: relative
+    &::before, 
+    &::after
+        content: ''
+        display: block
+        top: -7px
+        position: absolute
+        width: 14px
+        height: 14px
+        background-color: $colorGreen
+        border-radius: 50%
+    &::after
+        left: auto
+        top: -18px
+        right: 0
+        width: 35px
+        height: 35px
+        background: $colorWhite
+        border: 1px solid $colorGreen
+
+
+.slider::-webkit-slider-thumb 
+    -webkit-appearance: none
+    appearance: none
+    width: 36px
+    height: 36px
+    background: $colorGreen
+    cursor: pointer
+    opacity: 1
+    border-radius: 50%
+    position: relative
+    background-image: url('../icons/loop.svg') 
+    background-repeat: no-repeat
+    background-position: center
+    z-index: 3
+
+
+.slider::-moz-range-thumb 
+    width: 20px
+    height: 20px
+    background: #4CAF50
+    cursor: pointer
+.loop-text
+    font-weight: 400
+    font-size: 16px
+    line-height: 19px
+    text-align: center
+    margin-top: 10px
