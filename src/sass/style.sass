@@ -144,6 +144,8 @@ $colorBlack: #000000
     display: block
 .loop-block
     margin-top: 30px
+    &-tablet
+        display: none
 
 .loop-btn
     display: flex
@@ -395,6 +397,10 @@ $colorBlack: #000000
                 margin-top: 110px
     .loop-block
         margin-top: 85px
+        display: none
+        &-tablet.active
+            display: block
+            margin-top: 30px
 
 @media only screen and (max-width: 660px)
     .tabs
@@ -459,7 +465,12 @@ $colorBlack: #000000
         padding-right: 16px
     .loop
         &-block
+            display: block
             margin-top: 30px
+            &-tablet.active
+                display: none
+            &-tablet
+                display: none
         &-text
             margin-top: 10px
             font-size: 16px

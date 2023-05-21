@@ -5,6 +5,7 @@ const tabs = document.querySelectorAll('.tabs-btn-wrapper'),
       div = document.querySelector('.loop-block'),
       inner = document.querySelector('.inner'),
       onFloorDiv = document.querySelector('.tabs-content-wrapper__onfloor'),
+      loopBlockTablet = document.querySelector('.loop-block-tablet'),
       tabcontentonfloor = document.querySelector('.tabs-content-wrapper__onfloor');
 
 toggleActive(0);
@@ -31,17 +32,25 @@ function changeContent() {
         tabcontentonfloor.classList.add('show');
         tabcontentplan.classList.remove('show');
         div.style.display = '';
+        loopBlockTablet.classList.add('active');
     }
 }
 
-const loopBtn = document.querySelector('.slider'),
+const loopBtn = document.querySelector('#slider'),
+      loopBtnTablet = document.querySelector('#slider1'),
       loopImg = document.querySelector('.tabs-onfloor-img');
 
 loopBtn.addEventListener('input', (e) => {
     let loogCof = loopBtn.value;
     loopImg.style.width = `${loogCof}%`;
     handleInputChange(e, loopBtn);
-})
+});
+
+loopBtnTablet.addEventListener('input', (e) => {
+    let loogCof = loopBtnTablet.value;
+    loopImg.style.width = `${loogCof}%`;
+    handleInputChange(e, loopBtnTablet);
+});
 
 function handleInputChange(e ,selector) {
     let target = e.target
@@ -110,12 +119,9 @@ roller.addEventListener("input", (e) => {
     imageModal.style.transform = `translateX(-${roller.value * 0.03}%)`;
 });
 
-function check(){
-    if(window.matchMedia("(max-width: 768px)").matches){
-        div.remove();
-        inner.append(div);
-    }
+function check() {
     if (window.matchMedia("(max-width: 520px)").matches) {
+        div.remove();
         onFloorDiv.append(div);
         document.addEventListener("mousemove", function(e) {
             if (isDragging) {
@@ -127,11 +133,9 @@ function check(){
         roller.addEventListener("input", (e) => {
             imageModal.style.transform = `translateX(-${roller.value * 0.055}%)`;
         });
-    } else {
-        onFloorDiv.append(div);
-    }
-  }
+    };
+};
 
-  check();
+check();
   
-  window.addEventListener('resize', check);
+window.addEventListener('resize', check);
