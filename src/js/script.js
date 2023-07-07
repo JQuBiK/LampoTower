@@ -37,6 +37,10 @@ function changeContent() {
 }
 
 const loopBtn = document.querySelector('#slider'),
+      transformBtn = document.querySelector('#transform'),
+      transformBtnTablet = document.querySelector('#transform1'),
+      transformBlock = document.querySelector('.transform-block'),
+      transformBlockTablet = document.querySelector('.loop-block-tablet.transform-block'),
       loopBtnTablet = document.querySelector('#slider1'),
       loopImg = document.querySelector('.tabs-onfloor-img');
 
@@ -44,12 +48,34 @@ loopBtn.addEventListener('input', (e) => {
     let loogCof = loopBtn.value;
     loopImg.style.width = `${loogCof}%`;
     handleInputChange(e, loopBtn);
+    if (loopBtn.value > 400) {
+        transformBlock.classList.add('visual'); 
+    } else {
+        transformBlock.classList.remove('visual'); 
+    }
+});
+
+transformBtn.addEventListener('input', (e) => {
+    let loogCof = transformBtn.value;
+    loopImg.style.transform = `translateX(-${loogCof * 0.8}%)`;
+    console.log(1);
+});
+
+transformBtnTablet.addEventListener('input', (e) => {
+    let loogCof = transformBtnTablet.value;
+    loopImg.style.transform = `translateX(-${loogCof * 0.8}%)`;
+    console.log(1);
 });
 
 loopBtnTablet.addEventListener('input', (e) => {
     let loogCof = loopBtnTablet.value;
     loopImg.style.width = `${loogCof}%`;
     handleInputChange(e, loopBtnTablet);
+    if (loopBtnTablet.value > 400) {
+        transformBlockTablet.classList.add('active'); 
+    } else {
+        transformBlockTablet.classList.remove('active'); 
+    }
 });
 
 function handleInputChange(e ,selector) {
